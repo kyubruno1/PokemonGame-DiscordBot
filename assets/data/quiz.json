@@ -1,0 +1,221 @@
+[
+  {
+    "question": "Qual é o primeiro pokémon na pokedex?",
+    "choices": ["Bulbasaur", "Venusaur", "Mew"],
+    "answer": "Bulbasaur"
+  },
+  {
+    "question": "Quais são os pokémon iniciais da região de Kanto?",
+    "choices": [
+      "Bulbasaur, Pikachu & Cyndaquil",
+      "Charmander, Squirtle & Bulbasaur",
+      "Charmander, Pikachu & Chikorita"
+    ],
+    "answer": "Charmander, Squirtle & Bulbasaur"
+  },
+  {
+    "question": "Qual a idade de Ash?",
+    "choices": ["9", "10", "12"],
+    "answer": "10"
+  },
+  {
+    "question": "Quais são os pokémon iniciais da região de Johto?",
+    "choices": ["Chikorita, Cyndaquil & Totadile", "Totodile, Pikachu & Bayleef", "Meganium, Typhlosion & Feraligatr"],
+    "answer": "Chikorita, Cyndaquill & Totodile"
+  },
+  {
+    "question": "Qual o tipo de pokemon o Pikachu é?",
+    "choices": ["Rato", "Elétrico", "Fogo"],
+    "answer": "Elétrico"
+  },
+  {
+    "question": "Qual o último nome de Ash?",
+    "choices": ["Ketchup", "Ketchum", "Kanto"],
+    "answer": "Ketchum"
+  },
+  {
+    "question": "Qual o pokémon inicial de Ash?",
+    "choices": ["Jigglypuff", "Charizard", "Pikachu"],
+    "answer": "Pikachu"
+  },
+  {
+    "question": "Pokemon é a abreviação de..",
+    "choices": ["Não é abreviação de nada", "Pocket Monster", "Monstros para capturar em pokebolas"],
+    "answer": "Pocket Monster"
+  },
+  {
+    "question": "Qual pokémon tem mais evoluções?",
+    "choices": ["Eevee", "Slowbro", "Tyrogue"],
+    "answer": "Eevee"
+  },
+  {
+    "question": "Quem é a Equipe Rocket?",
+    "choices": ["Jessie, James & Pikachu", "Jessie, James & Meowth", "Jessie, James & Ash"],
+    "answer": "Jessie, James & Meowth"
+  },
+  {
+    "question": "O que é a Companhia Silph?",
+    "choices": ["Uma prisão", "Uma loja de café", "Fabricante de ferramentas e eletrodomésticos"],
+    "answer": "Fabricante de ferramentas e eletrodomésticos"
+  },
+  {
+    "question": "Qual pokémon tem a maior quantidade de cabeças?",
+    "choices": ["Exeggcute", "Dugtrio", "Hydreigon"],
+    "answer": "Exeggcute"
+  },
+  {
+    "question": "Quais são os pokémons lendarios?",
+    "choices": ["Articuno, Moltres & Arcanine", "Raikou, Suicune & Entei", "Vulpix, Flareon & Poochyena"],
+    "answer": "Raikou, Suicune & Entei"
+  },
+  {
+    "question": "Qual pokémon foi criada através de manipulação genética?",
+    "choices": ["Mew", "Mewtwo", "Demônio da Tasmania"],
+    "answer": "Mewtwo"
+  },
+  {
+    "question": "Qual o nome do professor que trabalha no laboratório de pesquisas da cidade de Pallet?",
+    "choices": ["Professor Rowan", "Professor Joy", "Professor Carvalho"],
+    "answer": "Professor Carvalho"
+  },
+  {
+    "question": "Como a ultrabola é diferente da pokebola?",
+    "choices": ["É duas vezes mais efetiva", "Ela captura pokémons tipo água", "Não há diferença"],
+    "answer": "É duas vezes mais efetiva"
+  },
+  {
+    "question": "Quais são as cores da pokebola?",
+    "choices": ["Vermelho, preto & branco", "Rosa, verde & laranja", "Branco, vermelho & laranja"],
+    "answer": "Vermelho, preto & branco"
+  },
+  {
+    "question": "O que o Pikachu faz no filme Detetive Pikachu?",
+    "choices": ["Ele é um médico", "Ele é um detetive", "Ele é uma foca"],
+    "answer": "Ele é um detetive"
+  },
+  {
+    "question": "Que tipo de pokémon a líder de ginário Erika usa?",
+    "choices": ["Grama", "Lutador", "Voador"],
+    "answer": "Grama"
+  },
+  {
+    "question": "O que o ash usa em sua cabeça?",
+    "choices": ["Sombrero", "Boné", "Pokebola"],
+    "answer": "Boné"
+  },
+  {
+    "question": "Qual pokémon se parece com uma pokebola?",
+    "choices": ["Voltorb", "Electrode", "Voltrode"],
+    "answer": "Voltorb"
+  },
+  {
+    "question": "Que tipo de pokémon o líder de ginário Koga usa?",
+    "choices": ["Psiquico", "Veneno", "Lutador"],
+    "answer": "Veneno"
+  },
+  {
+    "question": "Qual o pokémon que tem quatro braços?",
+    "choices": ["Machamp", "Primeape", "Dugtrio"],
+    "answer": "Machamp"
+  },
+  {
+    "question": "Qual o nome do pokémon tem dois canhões acima dos ombros?",
+    "choices": ["Lapras", "Seadra", "Blastoise"],
+    "answer": "Blastoise"
+  },
+  {
+    "question": "A pokedex pode ser usada para evoluir um pokémon?",
+    "choices": ["Sim", "Não", "Talvez"],
+    "answer": "Não"
+  },
+  {
+    "question": "Qual tipo de pedra de evolução transforma o Poliwhirl em Poliwrath?",
+    "choices": ["Água", "Terra", "Céu"],
+    "answer": "Água"
+  },
+  {
+    "question": "Como se captura pokémons?",
+    "choices": ["Usando a pokedex", "Usando pokebolas", "Usando pedra de evolução"],
+    "answer": "Usando pokebolas"
+  },
+  {
+    "question": "Quais sãos os treinadores que acompanham Ash?",
+    "choices": ["Professor Carvalho e Joy", "Misty e Brock", "Erika e Hange"],
+    "answer": "Misty e Brock"
+  },
+  {
+    "question": "Pikachu gosta de qual condimento?",
+    "choices": ["Mostarda", "Ketchup", "Maionese"],
+    "answer": "Ketchup"
+  },
+  {
+    "question": "Quando o Pikachu recupera sua eletricidade?",
+    "choices": ["Enquanto luta", "Enquanto brinca", "Enquanto dorme"],
+    "answer": "Enquanto dorme"
+  },
+  {
+    "question": "No anime, Pikachu foi o único pokémon capaz de:",
+    "choices": ["Não envelhecer", "Não evoluir nunca", "Derrotar dois pokémons lendários"],
+    "answer": "Derrotar dois pokémons lendários"
+  },
+  {
+    "question": "Qual foi o primeiro tipo dragão na série de pokemon?",
+    "choices": ["Dragonite", "Dratini", "Charizard"],
+    "answer": "Dratini"
+  },
+  {
+    "question": "Quantos entradas da pokedex o Ash tem registradas?",
+    "choices": ["79", "151", "32"],
+    "answer": "79"
+  },
+  {
+    "question": "Qual o tipo de pokémon favorito do Ash?",
+    "choices": ["Grama", "Terra", "Elétrico"],
+    "answer": "Elétrico"
+  },
+  {
+    "question": "Onde ocorrou a batalha em que Ash venceu pela primeira vez um líder de ginásio?",
+    "choices": ["Ginásio de Vermillion", "Ginásio de Pallet", "Ginásio do Ibirapuera"],
+    "answer": "Ginásio de Vermillion"
+  },
+  {
+    "question": "Qual o primeiro pokémon Ash capturou por si próprio?",
+    "choices": ["Pikachu", "Caterpie", "Mico Leão Dourado"],
+    "answer": "Caterpie"
+  },
+  {
+    "question": "Qual pokémon lendário Ash vê no seu primeiro dia da sua jornada pokémon?",
+    "choices": ["Ho-oh", "Articuno", "Louro José"],
+    "answer": "Ho-oh"
+  },
+  {
+    "question": "Na série de pokémon, Ash, Misty e Brock estão viajando por quão região?",
+    "choices": ["Kansai", "Rio de Janeiro", "Johto"],
+    "answer": "Johto"
+  },
+  {
+    "question": "Qual pokémon é considerado o mais forte?",
+    "choices": ["Suicine", "Arceus", "Mewtwo"],
+    "answer": "Arceus"
+  },
+  {
+    "question": "Quantos tipos de pokémon existem?",
+    "choices": ["18", "20", "60"],
+    "answer": "18"
+  },
+  {
+    "question": "Quantos tipos de pokebolas existem?",
+    "choices": ["27", "20", "40"],
+    "answer": "27"
+  },
+  {
+    "question": "Quais os tipos de pokémon inicial?",
+    "choices": ["Terra, Lua e Sol", "Grama, Agua e Fogo", "Fogo, Terra e Agua"],
+    "answer": "Grama, Agua e Fogo"
+  },
+  {
+    "question": "Quantos pokémon existem até a região de Johto?",
+    "choices": ["721", "151", "251"],
+    "answer": "251"
+  }
+]

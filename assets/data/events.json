@@ -1,0 +1,165 @@
+[
+  {
+    "name": "gymLeader",
+    "entryText": "Encontrou o líder de ginásio",
+    "actionText": "e te desafiou para uma batalha valendo uma insígnia!",
+    "gymLeaders": [
+      {
+        "gen": 1,
+        "leaders": [
+          {
+            "name": "Brock",
+            "insigne": "Rocha",
+            "pokemon_type": "Rocha"
+          },
+          {
+            "name": "Misty",
+            "insigne": "Cascata",
+            "pokemon_type": "Agua"
+          },
+          {
+            "name": "LtSurge",
+            "insigne": "Trovao",
+            "pokemon_type": "Eletrico"
+          },
+          {
+            "name": "Erika",
+            "insigne": "Arco Iris",
+            "pokemon_type": "Grama"
+          },
+          {
+            "name": "Koga",
+            "insigne": "Alma",
+            "pokemon_type": "Veneno"
+          },
+          {
+            "name": "Sabrina",
+            "insigne": "Pantano",
+            "pokemon_type": "Psiquico"
+          },
+          {
+            "name": "Blaine",
+            "insigne": "Vulcao",
+            "pokemon_type": "Fogo"
+          },
+          {
+            "name": "Giovanni",
+            "insigne": "Terra",
+            "pokemon_type": "Terra"
+          }
+        ]
+      },
+      {
+        "gen": 2
+      },
+      {
+        "gen": 3
+      },
+      {
+        "gen": 4
+      },
+      {
+        "gen": 5
+      },
+      {
+        "gen": 6
+      },
+      {
+        "gen": 7
+      },
+      {
+        "gen": 8,
+        "leaders": [
+          {
+            "name": "Brock",
+            "insigne": "Pedregulho",
+            "pokemon_type": "Rocha",
+            "league": "Indigo"
+          },
+          {
+            "name": "Misty",
+            "insigne": "Cascata",
+            "pokemon_type": "Agua",
+            "league": "Indigo"
+          },
+          {
+            "name": "LtSurge",
+            "insigne": "Trovao",
+            "pokemon_type": "Eletrico",
+            "league": "Indigo"
+          },
+          {
+            "name": "Erika",
+            "insigne": "Arco Iris",
+            "pokemon_type": "Grama",
+            "league": "Indigo"
+          },
+          {
+            "name": "Koga",
+            "insigne": "Alma",
+            "pokemon_type": "Veneno",
+            "league": "Indigo"
+          },
+          {
+            "name": "Sabrina",
+            "insigne": "Pantano",
+            "pokemon_type": "Psiquico",
+            "league": "Indigo"
+          },
+          {
+            "name": "Blaine",
+            "insigne": "Vulcao",
+            "pokemon_type": "Fogo",
+            "league": "Indigo"
+          },
+          {
+            "name": "Giovanni",
+            "insigne": "Terra",
+            "pokemon_type": "Terra",
+            "league": "Indigo"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "nurseJoy",
+    "entryText": "Encontrou a enfermeira Joy",
+    "actionText": "e ela te presenteou com"
+  },
+  {
+    "name": "officerJenny",
+    "entryText": "Encontrou a Oficial Jenny",
+    "actionText": "e te presenteou com"
+  },
+  {
+    "name": "rocketTeam",
+    "entryText": "Encontrou a Equipe Rocket",
+    "actionText": "e eles te roubaram 10% do total de algum item..."
+  },
+  {
+    "name": "professor",
+    "entryText": "Encontrou professor(a)",
+    "actionText": "e recebeu algo como recompensa!"
+  },
+  {
+    "name": "lostBackpack",
+    "entryText": "Esqueceu a sua mochila",
+    "actionText": "e infelizmente perdeu alguns itens..."
+  },
+  {
+    "name": "pokemonDied",
+    "entryText": "Um de seus pokemons",
+    "actionText": "morreu de forma misteriosa..."
+  },
+  {
+    "name": "thief",
+    "entryText": "Encontrou um ladrão ",
+    "actionText": "e ele te roubou 10% do total de algum item..."
+  },
+  {
+    "name": "wonLottery",
+    "entryText": "Parabéns! Venceu em uma aposta da loteria pokemon",
+    "actionText": "e recebeu uma premiação em moedas!!"
+  }
+]
