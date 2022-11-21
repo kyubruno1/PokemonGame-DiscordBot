@@ -337,7 +337,6 @@ async function pokemonDied(interaction) {
   const player = await Player.findOne({ where: { discordId: interaction.user.id } });
   const pokemons = JSON.parse(player.pokemons);
   const pokemonTeam = JSON.parse(player.teams);
-  // console.log(pokemons);
 
   pokemons.forEach((item) => {
     if (item.slots != '') {
@@ -380,8 +379,13 @@ async function pokemonDied(interaction) {
 async function getPokemonInfos(interaction) {
   const pokeQnt = configPokemons.find((gen) => gen.gen == configGen);
 
-  const result = await fetch(`http://pokeapi.co/api/v2/pokemon/${chance.integer({ min: 0, max: pokeQnt.quantity })}/`);
-  const pokemon = await result.json();
+  const infoPath = path.join(__dirname, '..', 'assets', 'data', 'pokemon_info.json');
+  const infoFile = JSON.parse(fs.readFileSync(infoPath, { encoding: 'utf8', flag: 'r' }));
+  const findGeneration = infoFile.find((item) => item.gen == configGen);
+  const pokemon = findGeneration.pokemons[chance.integer({ min: 0, max: pokeQnt.quantity })];
+
+  // const result = await fetch(`http://pokeapi.co/api/v2/pokemon/${chance.integer({ min: 0, max: pokeQnt.quantity })}/`);
+  // const pokemon = await result.json();
 
   //growth rate
   const growthRate = ['Muito lento', 'Lento', 'Normal', 'Rápido', 'Muito rápido'];
@@ -392,14 +396,10 @@ async function getPokemonInfos(interaction) {
   const berriesQnt = [0, 1, 2, 3, 4];
   const berriesLimit = berriesQnt[growthRandom];
 
-  //sprite
-  let sprite = pokemon.sprites.other.home.front_default;
-
   //shiny
   const shiny = shinyChance();
   if (shiny == 'Sim') {
-    pokemon.name = `🌟 ${pokemon.name}`;
-    sprite = pokemon.sprites.other.home.front_shiny;
+    pokemon.name = `${pokemon.name}_shiny`;
   }
 
   //level
@@ -413,13 +413,7 @@ async function getPokemonInfos(interaction) {
 
   const level = chance.integer({ min: 1, max: maxLevel });
 
-  //type
-  const filePath = path.join(__dirname, '..', 'assets', 'data', `elements.json`);
-  let fileData = fs.readFileSync(filePath, { encoding: 'utf8', flag: 'r' });
-  const file = JSON.parse(fileData);
-  const element = file.find((el) => el.english == pokemon.types[0].type.name);
-
-  return { pokemon, growth, shiny, level, sprite, berriesLimit, element };
+  return { pokemon, growth, shiny, level, berriesLimit };
 }
 
 function shinyChance() {
@@ -463,7 +457,7 @@ function interactionCollector(interaction, row) {
 
 async function createEmbedPokemon(interaction, player) {
   //infos pokemon
-  const { pokemon, growth, shiny, level, sprite, berriesLimit, element } = await getPokemonInfos(interaction);
+  const { pokemon, growth, shiny, level, berriesLimit } = await getPokemonInfos(interaction);
 
   //há slot disponivel para captura?
   const playersPokemons = JSON.parse(player.pokemons);
@@ -478,6 +472,16 @@ async function createEmbedPokemon(interaction, player) {
   const location = await readAndGetEncounters('location');
   const encounter = await readAndGetEncounters('encounter_method');
 
+  //imagem do pokemon
+  const pokemonImagePath = path.join(__dirname, '../assets/images/pokemons/');
+  const file = new AttachmentBuilder(`${pokemonImagePath}${pokemon.name}.png`);
+
+  // manipulação do nome
+  let pokemonName = `${pokemon.name}`.split('_')[0];
+  if (shiny == true) {
+    pokemonName = `🌟 ${pokemonName}`;
+  }
+
   //cria embed
   const embedPokemon = new EmbedBuilder()
     .setColor('EE1515')
@@ -489,17 +493,17 @@ async function createEmbedPokemon(interaction, player) {
     .setDescription(`Encontrou um ${pokemon.name} em ${location} ${encounter}`)
     .addFields(
       { name: '\u200B', value: '\u200B' },
-      { name: 'Nome', value: `${pokemon.name}`, inline: true },
+      { name: 'Nome', value: `${pokemonName}`, inline: true },
       { name: 'N. Pokédex', value: `${pokemon.id}`, inline: true },
       { name: 'Level', value: `${level}`, inline: true },
       { name: 'Shiny', value: `${shiny}`, inline: true },
       { name: 'Taxa de cresc.', value: `${growth}`, inline: true },
-      { name: 'Elemento', value: `${element.portuguese}`, inline: true },
+      { name: 'Elemento', value: `${pokemon.element}`, inline: true },
       { name: 'Dispon. Captura', value: `${canCatch}`, inline: true },
       { name: 'Exp ao derrotar', value: `${pokemon.base_experience * level}`, inline: true },
       { name: 'Berries Equip.', value: `${berriesLimit}`, inline: true }
     )
-    .setImage(`${sprite}`)
+    .setImage(`attachment://${pokemon.name}.png`)
     .setTimestamp();
 
   //cria os botões
@@ -512,6 +516,7 @@ async function createEmbedPokemon(interaction, player) {
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder().setCustomId('battle').setLabel('Batalhar').setEmoji('⚔️').setStyle(ButtonStyle.Danger)
     );
+
     interactionCollector(interaction, row);
     return interaction.reply({
       content: `${interaction.user} Você não tem mais espaço para este pokémon!`,
@@ -526,6 +531,7 @@ async function createEmbedPokemon(interaction, player) {
     content: `${interaction.user}`,
     components: [row],
     embeds: [embedPokemon],
+    files: [file],
   });
 }
 

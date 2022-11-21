@@ -5,10 +5,15 @@ const fetch = require('node-fetch');
 const config = require('config');
 const generations = config.get('pokemonsByGen.generations');
 
-const filePath = path.join(__dirname, 'data', 'pokemon_info.json');
-const helperPath = path.join(__dirname, 'data', 'helper.json');
+async function getPokemonData() {
+  const filePath = path.join(__dirname, 'data', 'pokemon_info.json');
+  const helperPath = path.join(__dirname, 'data', 'helper.json');
 
-async function getPokemonData(filePath) {
+  //Arquivo de elementos
+  const elementsPath = path.join(__dirname, 'data', 'elements.json');
+  const elementsData = JSON.parse(fs.readFileSync(elementsPath, { encoding: 'utf8', flag: 'r' }));
+  console.log(elementsData);
+
   console.log(chalk.bgBlackBright('Criando arquivo de infos sobre pokémons...'));
   try {
     let arr = [];
@@ -22,6 +27,12 @@ async function getPokemonData(filePath) {
       const result = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${i}/`);
       const pokemon = await result.json();
 
+      const resultElement = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+      const elementPokemon = await resultElement.json();
+
+      const element = elementsData.find((item) => item.english == elementPokemon.types[0].type.name);
+      const base_experience = elementPokemon.base_experience;
+
       const infos = {
         id: i,
         name: pokemon.name,
@@ -29,6 +40,8 @@ async function getPokemonData(filePath) {
         evolves_to: '',
         is_legendary: pokemon.is_legendary,
         is_mythical: pokemon.is_mythical,
+        element: element.portuguese,
+        base_experience: base_experience,
       };
 
       if (pokemon.evolves_from_species) {
@@ -44,13 +57,13 @@ async function getPokemonData(filePath) {
       });
     }
 
-    createHelperFile(helperPath);
+    createHelperFile(filePath, helperPath);
   } catch (error) {
     console.log(error);
   }
 }
 
-async function createHelperFile(helperPath) {
+async function createHelperFile(filePath, helperPath) {
   console.log(chalk.bgGreenBright('Arquivo "base" inicial dos pokemons criados'));
   console.log(chalk.bgBlackBright('Criando arquivo helper...'));
   //Cria um arquivo para poder comparar os pokémons depois
@@ -128,7 +141,7 @@ async function compareFiles(filePath, helperPath) {
     //deleta o arquivo helper
     // fs.unlinkSync(helperPath);
   });
-  createDefinitiveFile(filePath);
+  createDefinitiveFile(filePath, helperPath);
 }
 
 function checkIfExist(filePath, pokemonName) {
@@ -141,7 +154,7 @@ function checkIfExist(filePath, pokemonName) {
   return false;
 }
 
-function createDefinitiveFile(filePath) {
+function createDefinitiveFile(filePath, helperPath) {
   console.log(chalk.bgBlackBright('Finalizando edição do arquivo de informações de pokémon...'));
 
   const data = fs.readFileSync(filePath, { encoding: 'utf8', flag: 'r' });
@@ -171,7 +184,7 @@ function createDefinitiveFile(filePath) {
 module.exports = getPokemonData;
 // getPokemonsInfos(filePath);
 
-// createHelperFile(helperPath);
+// createHelperFile(filePath, helperPath);
 
 // compareFiles(filePath, helperPath);
 
