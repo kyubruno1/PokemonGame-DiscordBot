@@ -1,0 +1,122 @@
+[
+  {
+    "english": "normal",
+    "portuguese": "normal",
+    "strong": [],
+    "weak": ["lutador"]
+  },
+  {
+    "english": "fighting",
+    "portuguese": "lutador",
+    "strong": ["normal", "pedra", "ferro", "gelo", "sombrio"],
+    "weak": ["voador", "psiquico", "fada"]
+  },
+  {
+    "english": "flying",
+    "portuguese": "voador",
+    "strong": ["lutador", "inseto", "grama"],
+    "weak": ["voador", "veneno", "psiquico", "fada", "fantasma"]
+  },
+  {
+    "english": "poison",
+    "portuguese": "veneno",
+    "strong": ["grama", "fada"],
+    "weak": ["veneno", "terra", "pedra", "fantasma", "ferro"]
+  },
+  {
+    "english": "ground",
+    "portuguese": "terra",
+    "strong": ["veneno", "pedra", "ferro", "fogo", "eletrico"],
+    "weak": ["lutador", "terra", "ferro"]
+  },
+  {
+    "english": "rock",
+    "portuguese": "pedra",
+    "strong": ["voador", "inseto", "fogo", "gelo"],
+    "weak": ["lutador", "terra", "ferro"]
+  },
+  {
+    "english": "bug",
+    "portuguese": "inseto",
+    "strong": ["grama", "psiquico", "sombrio"],
+    "weak": ["lutador", "voador", "veneno", "fantasma", "ferro", "fogo", "fada"]
+  },
+  {
+    "english": "ghost",
+    "portuguese": "fantasma",
+    "strong": ["fantasma", "psiquico"],
+    "weak": ["normal", "sombrio"]
+  },
+  {
+    "english": "steel",
+    "portuguese": "ferro",
+    "strong": ["pedra", "gelo", "fada"],
+    "weak": ["ferro", "fogo", "agua", "eletrico"]
+  },
+  {
+    "english": "fire",
+    "portuguese": "fogo",
+    "strong": ["inseto", "ferro", "fada"],
+    "weak": ["ferro", "agua", "fogo", "eletrico"]
+  },
+  {
+    "english": "water",
+    "portuguese": "agua",
+    "strong": ["terra", "pedra", "fogo"],
+    "weak": ["agua", "grama", "dragao"]
+  },
+  {
+    "english": "grass",
+    "portuguese": "grama",
+    "strong": ["terra", "pedra", "agua"],
+    "weak": ["agua", "veneno", "inseto", "ferro", "fogo", "grama", "dragao"]
+  },
+  {
+    "english": "psychic",
+    "portuguese": "psiquico",
+    "strong": ["lutador", "veneno"],
+    "weak": ["ferro", "psiquico", "sombrio"]
+  },
+  {
+    "english": "ice",
+    "portuguese": "gelo",
+    "strong": ["voador", "terra", "grama", "dragao"],
+    "weak": ["ferro", "fogo", "agua", "gelo"]
+  },
+  {
+    "english": "dragon",
+    "portuguese": "dragao",
+    "strong": ["dragao"],
+    "weak": ["ferro", "fada"]
+  },
+  {
+    "english": "dark",
+    "portuguese": "sombrio",
+    "strong": ["fantasma", "psiquico"],
+    "weak": ["lutador", "sombrio", "fada"]
+  },
+  {
+    "english": "fairy",
+    "portuguese": "fada",
+    "strong": ["lutador", "dragao", "sombrio"],
+    "weak": ["veneno", "ferro", "fogo"]
+  },
+  {
+    "english": "electric",
+    "portuguese": "eletrico",
+    "strong": ["voador", "agua"],
+    "weak": ["grama", "eletrico", "dragao", "terra"]
+  },
+  {
+    "english": "unknown",
+    "portuguese": "desconhecido",
+    "strong": [],
+    "weak": []
+  },
+  {
+    "english": "shadow",
+    "portuguese": "sombra",
+    "strong": ["normal", "terra", "pedra", "ferro", "agua", "grama", "gelo", "dragao"],
+    "weak": ["lutador", "voador", "veneno", "fantasma", "fogo", "eletrico", "psiquico", "sombrio"]
+  }
+]

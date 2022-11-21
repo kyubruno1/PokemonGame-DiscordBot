@@ -47,12 +47,10 @@ const expPath = path.join(__dirname, 'data', 'exp_table.json');
 async function createFile() {
   if (!fs.existsSync(expPath)) {
     fs.writeFileSync(expPath, JSON.stringify(array), (err) => {
-      console.log('criou');
       if (err) throw err;
     });
   }
   console.log(chalk.bgGreenBright('Criação da tabela de exp dos pokemons finalizada.'));
 }
-// createFile();
 
 module.exports = createExpTable;

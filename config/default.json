@@ -15,35 +15,67 @@
     "pokemons": [
       {
         "generation": 1,
-        "starter": ["bulbasaur", " charmander", " squirtle"]
+        "starter": [
+          { "name": "bulbasaur", "element": "grama", "id": 1 },
+          { "name": " charmander", "element": "fogo", "id": 4 },
+          { "name": " squirtle", "element": "agua", "id": 7 }
+        ]
       },
       {
         "generation": 2,
-        "starter": ["chikorita", " cyndaquil", " totodile"]
+        "starter": [
+          { "name": "chikorita", "element": "grama", "id": 152 },
+          { "name": " cyndaquil", "element": "fogo", "id": 155 },
+          { "name": " totodile", "element": "agua", "id": 158 }
+        ]
       },
       {
         "generation": 3,
-        "starter": ["treecko", " torchic", " mudkip"]
+        "starter": [
+          { "name": "treecko", "element": "grama", "id": 252 },
+          { "name": " torchic", "element": "fogo", "id": 255 },
+          { "name": " mudkip", "element": "agua", "id": 258 }
+        ]
       },
       {
         "generation": 4,
-        "starter": ["turtwig", " chimchar", " piplup"]
+        "starter": [
+          { "name": "turtwig", "element": "grama", "id": 387 },
+          { "name": " chimchar", "element": "fogo", "id": 390 },
+          { "name": " piplup", "element": "agua", "id": 393 }
+        ]
       },
       {
         "generation": 5,
-        "starter": ["snivy", " tepig", " oshawott"]
+        "starter": [
+          { "name": "snivy", "element": "grama", "id": 495 },
+          { "name": " tepig", "element": "fogo", "id": 498 },
+          { "name": " oshawott", "element": "agua", "id": 501 }
+        ]
       },
       {
         "generation": 6,
-        "starter": ["chespin", " fennekin", " froakie"]
+        "starter": [
+          { "name": "chespin", "element": "grama", "id": 650 },
+          { "name": " fennekin", "element": "fogo", "id": 653 },
+          { "name": " froakie", "element": "agua", "id": 656 }
+        ]
       },
       {
         "generation": 7,
-        "starter": ["rowlet", " litten", " popplio"]
+        "starter": [
+          { "name": "rowlet", "element": "grama", "id": 722 },
+          { "name": " litten", "element": "fogo", "id": 725 },
+          { "name": " popplio", "element": "agua", "id": 728 }
+        ]
       },
       {
         "generation": 8,
-        "starter": ["grookey", " scorbunny", " sobble"]
+        "starter": [
+          { "name": "grookey", "element": "grama", "id": 810 },
+          { "name": " scorbunny", "element": "fogo", "id": 813 },
+          { "name": " sobble", "element": "agua", "id": 816 }
+        ]
       }
     ]
   },

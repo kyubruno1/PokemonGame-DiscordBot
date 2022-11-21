@@ -8,9 +8,11 @@ module.exports = {
   async execute(interaction) {
     const [first, second, third] = interaction.values[0].replaceAll(' ', '').split(',');
 
-    const fPokemon = await createEmbedStarter(first);
-    const sPokemon = await createEmbedStarter(second);
-    const tPokemon = await createEmbedStarter(third);
+    const generation = interaction.values[0].replaceAll(' ', '').split(',')[3];
+
+    const fPokemon = await createEmbedStarter(first, generation);
+    const sPokemon = await createEmbedStarter(second, generation);
+    const tPokemon = await createEmbedStarter(third, generation);
 
     await interaction.reply({
       embeds: [fPokemon.embed],

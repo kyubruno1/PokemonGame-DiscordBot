@@ -1,13 +1,13 @@
-assets/data/elements.json
 assets/data/location_areas.json
 assets/data/encounter_method.json
 assets/data/exp_table.json
 assets/data/location.json
 assets/data/pokemon_info.json
-assets/data/starterPokemon.json
+assets/data/starter_pokemon.json
 assets/data/trainer_exp_table.json
 assets/images
 .env
 teste.js
 node_modules
 TO-DO.md
+FLUXO-COMANDOS.md
