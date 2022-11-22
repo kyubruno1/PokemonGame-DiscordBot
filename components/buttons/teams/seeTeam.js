@@ -6,6 +6,12 @@ module.exports = {
   },
   async execute(interaction) {
     const player = await Player.findOne({ where: { discordId: interaction.user.id } });
+    if (!player) {
+      return interaction.reply({
+        content: `Digite /inicial para escolher seu pokémon inicial primeiro!`,
+        ephemeral: true,
+      });
+    }
     const pokemons = JSON.parse(player.teams);
     showPokemons(interaction, pokemons);
   },

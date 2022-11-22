@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, userMention } = require('discord.js');
-
+const Player = require('../db/models/Player');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('batalha')
@@ -8,12 +8,12 @@ module.exports = {
       option.setName('jogador').setDescription('Coloque o @ de quem deseja desafiar').setRequired(true)
     ),
   async execute(interaction) {
+    const challengedPlayer = interaction.options._hoistedOptions[0].value.replace(/[^0-9]/g, '');
+
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder().setCustomId('playerbattleyes').setLabel('Sim').setEmoji('⚔️').setStyle(ButtonStyle.Primary),
       new ButtonBuilder().setCustomId('playerbattleno').setLabel('Não').setEmoji('🐔').setStyle(ButtonStyle.Danger)
     );
-
-    const challengedPlayer = interaction.options._hoistedOptions[0].value.replace(/[^0-9]/g, '');
 
     let arr = [];
     const guild = await interaction.member.guild.members.fetch();
@@ -23,7 +23,6 @@ module.exports = {
       }
     });
 
-    // console.log(arr);
     if (arr.length == 0) {
       console.log(arr.length);
       return interaction.reply({

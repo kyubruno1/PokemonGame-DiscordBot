@@ -19,15 +19,23 @@ module.exports = {
     let authorPokemon = '';
 
     if (!enemy) {
-      await interaction.channel.send({
-        content: `${userMention(challengedPlayer)} Você não escolheu seu pokémon inicial, escolha com /inicial`,
-      });
+      await interaction.channel
+        .send({
+          content: `${userMention(challengedPlayer)} Você não escolheu seu pokémon inicial, escolha com /inicial`,
+        })
+        .then((msg) => {
+          setTimeout(() => msg.delete(), 1000);
+        });
     }
 
     if (!author) {
-      await interaction.channel.send({
-        content: `${userMention(authorPlayer)} Você não escolheu seu pokémon inicial, escolha com /inicial`,
-      });
+      await interaction.channel
+        .send({
+          content: `${userMention(authorPlayer)} Você não escolheu seu pokémon inicial, escolha com /inicial`,
+        })
+        .then((msg) => {
+          setTimeout(() => msg.delete(), 1000);
+        });
     }
 
     if (interaction.user.id == challengedPlayer && enemy && author) {
@@ -131,7 +139,13 @@ module.exports = {
       }
       // createBoard(interaction);
     } else if (interaction.user.id != challengedPlayer) {
-      interaction.reply('Não foi você o desafiado');
+      interaction.channel
+        .send({
+          content: `Não foi você o desafiado `,
+        })
+        .then((msg) => {
+          setTimeout(() => msg.delete(), 3000);
+        });
     }
   },
 };

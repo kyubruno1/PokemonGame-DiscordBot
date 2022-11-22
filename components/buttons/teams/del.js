@@ -6,9 +6,14 @@ module.exports = {
     name: `del`,
   },
   async execute(interaction) {
-    console.log('del pokemon from a team');
-
     const player = await Player.findOne({ where: { discordId: interaction.user.id } });
+    if (!player) {
+      return interaction.reply({
+        content: `Digite /inicial para escolher seu pokémon inicial primeiro!`,
+        ephemeral: true,
+      });
+    }
+
     const pokemonTeam = JSON.parse(player.teams);
     const pokemons = JSON.parse(player.pokemons);
     const options = [];

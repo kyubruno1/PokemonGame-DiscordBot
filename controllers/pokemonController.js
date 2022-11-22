@@ -74,12 +74,8 @@ async function showPokemons(interaction, pokemons) {
 }
 
 async function showPokemonsTeam(interaction) {
-  // Create the modal
   const modal = new ModalBuilder().setCustomId('addToTeamModal').setTitle('Adicionar ao time');
 
-  // Add components to modal
-
-  // Create the text input components
   const idInput = new TextInputBuilder()
     .setCustomId('idInput')
     .setLabel('Número do **ID** da pokedex')
@@ -115,18 +111,14 @@ async function showPokemonsTeam(interaction) {
     .setPlaceholder('Último campo exibido no /pokedex')
     .setRequired(true);
 
-  // An action row only holds one text input,
-  // so you need one action row per text input.
   const firstActionRow = new ActionRowBuilder().addComponents(idInput);
   const secondActionRow = new ActionRowBuilder().addComponents(levelInput);
   const thirdActionRow = new ActionRowBuilder().addComponents(elementInput);
   const fourthActionRow = new ActionRowBuilder().addComponents(growthInput);
   const fifthActionRow = new ActionRowBuilder().addComponents(expInput);
 
-  // Add inputs to the modal
   modal.addComponents(firstActionRow, secondActionRow, thirdActionRow, fourthActionRow, fifthActionRow);
 
-  // Show the modal to the user
   await interaction.showModal(modal);
 
   const collector = interaction.channel.createMessageComponentCollector({

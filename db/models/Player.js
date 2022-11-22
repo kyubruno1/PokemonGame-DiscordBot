@@ -31,7 +31,7 @@ const Player = sequelize.define(
       defaultValue: 1,
     },
     vipUntil: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATE,
       defaultValue: null,
     },
     teams: {

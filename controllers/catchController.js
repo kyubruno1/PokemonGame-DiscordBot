@@ -11,6 +11,7 @@ const configPokeballRate = config.get('universal.pokeballCatchRates');
 const configInteractionCooldown = config.get('universal.cooldowns.buttonInteraction');
 const configPokemonBaseHealth = config.get('universal.pokemonBaseHealth');
 const earnedCatchChanceByTrainerLevel = config.get('player.earnedCatchChanceByTrainerLevel');
+const configVIPchance = config.get('store.vipBonus.catchBonusChance');
 
 var chance = require('chance').Chance();
 
@@ -18,6 +19,7 @@ var chance = require('chance').Chance();
 const Player = require('../db/models/Player');
 const Inventory = require('../db/models/Inventory');
 const { checkTrainerLevelUp } = require('../controllers/PlayerController');
+const vipCheck = require('../functions/helpers/verifyVIP');
 
 /* */
 
@@ -155,6 +157,10 @@ async function catchExecute(interaction) {
       const trainerBonusChance = player.trainerLevel * earnedCatchChanceByTrainerLevel;
       catchChance = catchPercentage(values[1]) * val;
       catchChance = catchChance + trainerBonusChance;
+      const vip = await vipCheck(player.vipUntil, interaction.user.id);
+      if (vip == true) {
+        catchChance = catchChance + configVIPchance;
+      }
     }
   }
 

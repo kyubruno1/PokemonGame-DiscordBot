@@ -251,11 +251,12 @@
       "greatball": 9999999,
       "ultraball": 9999999,
       "itemEvo1": 9999999,
-      "itemEvo2": 9999999
+      "itemEvo2": 9999999,
+      "vip": 1
     },
-    "vipDuration": 100000,
+    "vipDurationDays": 100000,
     "vipBonus": {
-      "catchBonusChance": 0,
+      "catchBonusChance": 5,
       "evolutionBonusChance": 0,
       "pveBattleWinChance": 0
     }

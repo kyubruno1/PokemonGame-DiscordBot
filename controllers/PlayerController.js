@@ -87,4 +87,5 @@ async function checkTrainerLevelUp(player, pokemonBaseExp) {
     return player;
   }
 }
+
 module.exports = { createAccount, checkTrainerLevelUp };
