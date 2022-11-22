@@ -4,7 +4,6 @@ assets/data/exp_table.json
 assets/data/location.json
 assets/data/pokemon_info.json
 assets/data/starter_pokemon.json
-assets/data/trainer_exp_table.json
 assets/images
 .env
 teste.js

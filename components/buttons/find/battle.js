@@ -12,6 +12,6 @@ module.exports = {
     //   }
     // });
     // // interaction.reply(`${arr}`);
-    // interaction.reply(`battle`);
+    interaction.reply(`battle`);
   },
 };

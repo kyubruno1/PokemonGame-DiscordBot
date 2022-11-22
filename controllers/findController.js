@@ -522,6 +522,7 @@ async function createEmbedPokemon(interaction, player) {
       content: `${interaction.user} Você não tem mais espaço para este pokémon!`,
       components: [row],
       embeds: [embedPokemon],
+      files: [file],
     });
   }
 

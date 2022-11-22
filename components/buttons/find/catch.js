@@ -19,7 +19,7 @@ module.exports = {
       }
 
       const row = await createPokeballSelectMenu(interaction);
-      await interaction.reply({ components: [row] });
+      await interaction.reply({ components: [row], ephemeral: true });
       //   catchExecute(interaction);
     }
   },

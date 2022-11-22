@@ -43,7 +43,7 @@ async function createPokeballSelectMenu(interaction) {
   });
   const json = await inventory.toJSON();
 
-  //passa os valores para a próxima interação
+  //PREPARA OS VALORES PARA A PRÓXIMA INTERAÇÃO PARA SEREM USADOS COMO "VALUE" NO SELECT MENU
   const growthRate = [
     { name: 'Muito lento', rate: 0.5 },
     { name: 'Lento', rate: 0.8 },
@@ -143,10 +143,8 @@ function catchPercentage(pokemonLevel) {
 }
 
 async function catchExecute(interaction) {
-  //
   const player = await Player.findOne({ where: { discordId: interaction.user.id } });
 
-  //
   const values = interaction.values[0].split(',');
   const pokeballChose = values[9];
   let catchChance = '';
@@ -167,15 +165,20 @@ async function catchExecute(interaction) {
     // const player = await Player.findOne({ where: { discordId: interaction.user.id } });
     const pokemons = JSON.parse(player.pokemons);
     const pokemonFound = pokemons.find((poke) => poke.id == values[8]);
+    pokemonFound.alreadyCaught = 'Yes';
 
     //verifica se já ultrapassou o limite de pokemons do mesmo tipo
     if (pokemonFound.slots.length >= configPokemonLimit) {
-      return await interaction.reply({
+      return await interaction.editReply({
         content: `Você pode ter até ${configPokemonLimit} deste pokemon e você já atingiu o limite. Você pode transformar (/fabrica) seus pokemons em berries ou soltar (/soltar) eles.`,
         ephemeral: true,
       });
     }
 
+    //adiciona +1 ao total de pokemons capturados
+    const totalCatch = player.totalCatch + 1;
+
+    //Adiciona o novo pokémon no slot
     pokemonFound.slots.push({
       name: values[0],
       level: values[1],
@@ -192,22 +195,30 @@ async function catchExecute(interaction) {
       ],
     });
 
-    const pokemonBaseExp = values[10] / values[1];
+    //verifica se o player subiu de nível
+    const pokemonBaseExp = values[10] / values[1]; //exp ao derrotar dividido pelo level do pokemon
     const playerLevelUp = await checkTrainerLevelUp(player, pokemonBaseExp);
 
     await Player.update(
-      { trainerLevel: playerLevelUp.trainerLevel, expToNextLevel: playerLevelUp.expToNextLevel, pokemons: pokemons },
+      {
+        trainerLevel: playerLevelUp.trainerLevel,
+        expToNextLevel: playerLevelUp.expToNextLevel,
+        totalCatch: totalCatch,
+        pokemons: pokemons,
+      },
       { where: { discordId: interaction.user.id } }
     );
 
     if (playerLevelUp.trainerLevel > player.trainerLevel) {
       return await interaction.reply({
         content: `${interaction.user} capturou um **${values[0]}** level **${values[1]}**, parabéns! 
-        Seu nível de treinador aumentou para: **${playerLevelUp.trainerLevel}**`,
+Seu nível de treinador aumentou para: **${playerLevelUp.trainerLevel}**`,
+        ephemeral: true,
       });
     }
     return await interaction.reply({
       content: `${interaction.user} capturou um ${values[0]} level ${values[1]}, parabéns!`,
+      ephemeral: true,
     });
   }
 

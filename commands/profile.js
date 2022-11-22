@@ -17,10 +17,9 @@ module.exports = {
     });
 
     //ler e procurar o level na tabela
-    const expTablePath = path.join(__dirname, '..', 'assets', 'data', 'exp_table.json');
-    const data = fs.readFileSync(expTablePath, { encoding: 'utf8', flag: 'r' });
-    const dataJSON = JSON.parse(data);
-    const dataFind = dataJSON.find((item) => item.lvl == player.trainerLevel);
+    const expTablePath = path.join(__dirname, '..', 'assets', 'data', 'trainer_exp_table.json');
+    const data = JSON.parse(fs.readFileSync(expTablePath, { encoding: 'utf8', flag: 'r' }));
+    const dataFind = data.find((item) => item.trainerLevel == player.trainerLevel);
 
     const playerExp = dataFind.expToNextLevel - player.expToNextLevel;
 
@@ -29,7 +28,13 @@ module.exports = {
       .setColor(0x0099ff)
       .setAuthor({ name: `${interaction.user.username} - Perfil`, iconURL: `${interaction.user.displayAvatarURL()}` })
       .setDescription(
-        `**__PROGRESSO__**\n**Level**: ${player.trainerLevel}\n**EXP**: ${playerExp}/${dataFind.expToNextLevel}\n**Vitórias PvP**: ${player.pvpWins}\n\n**__POKEMONS__**\n**Capturados**: ${counter}\n\n`
+        `**__PROGRESSO__**\n**Level**: ${player.trainerLevel}
+**EXP**: ${playerExp}/${dataFind.expToNextLevel}
+**Vitórias PvP**: ${player.pvpWins}\n
+**__POKEMONS__**
+**Capturados únicos**: ${counter}
+**Capturados Total**: ${player.totalCatch}
+`
       )
       .setThumbnail(`${interaction.user.displayAvatarURL()}`)
       .setTimestamp();

@@ -28,10 +28,10 @@ async function createAccount(interaction) {
   const chosenPokemon = interaction.message.embeds[0].fields;
   const cPoke = {
     name: chosenPokemon[0].value,
-    level: chosenPokemon[2].value,
-    growth: chosenPokemon[3].value,
+    level: chosenPokemon[4].value,
+    growth: chosenPokemon[5].value,
     growthRate: 1,
-    element: 'Normal',
+    element: chosenPokemon[2].value,
     expToNextLevel: 100,
     berries: {
       max: 2,
@@ -96,6 +96,11 @@ async function createAccount(interaction) {
     },
   ];
 
+  //procura
+  const dataPath = path.join(__dirname, '..', 'assets', 'data', `trainer_exp_table.json`);
+  const data = JSON.parse(fs.readFileSync(dataPath, { encoding: 'utf8', flag: 'r' }));
+  const lvlOneExp = data.find((item) => item.trainerLevel == 1);
+
   await Player.create({
     name: interaction.user.tag,
     discordId: interaction.user.id,
@@ -104,7 +109,8 @@ async function createAccount(interaction) {
     pvpWins: 0,
     teams: team,
     trainerLevel: 1,
-    expToNextLevel: 100,
+    expToNextLevel: lvlOneExp.expToNextLevel,
+    totalCatch: 1,
     capsules: capsules,
   });
   await Inventory.create({ PlayerDiscordId: interaction.user.id });

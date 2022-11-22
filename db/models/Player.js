@@ -23,6 +23,9 @@ const Player = sequelize.define(
     expToNextLevel: {
       type: DataTypes.INTEGER,
     },
+    totalCatch: {
+      type: DataTypes.INTEGER,
+    },
     teams: {
       type: DataTypes.JSON,
     },
