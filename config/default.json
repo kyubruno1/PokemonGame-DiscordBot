@@ -1,18 +1,57 @@
 {
-  "generations": {
-    "comment": "CONFIGURAÇÃO QUANTAS GERAÇÕES DE POKEMONS SERÃO JOGADAS. APENAS ALTERAR O NÚMERO NO 'GEN' ABAIXO SEM ALTERAR O OBJETO INTEIRO. DEPOIS REINICIAR O BOT",
-    "gen": 8
+  "player": {
+    "earnedCatchChanceByTrainerLevel": 0.05,
+    "pokemonSpawnLevelByTrainerLevel": {
+      "base": 15,
+      "increaseByLevel": 3
+    }
   },
-  "samePokemonLimit": 3,
-  "shinyPercentage": 1,
-  "cooldowns": {
-    "comment": "TEMPO DE COOLDOWN EM MILISEGUNDOS. 1MIN = 60000, 5MIN = 300000, 1HORA = 3600000 , 1DIA = 86400000",
-    "find": 300000,
-    "quiz": 86400000,
-    "interacaoBotoes": 30000
-  },
-  "starters": {
-    "pokemons": [
+  "universal": {
+    "generationsPlayed": 8,
+    "samePokemonLimitInPokedex": 3,
+    "pokemonBaseHealth": 3,
+    "pokemonTeamLimit": 6,
+    "cooldowns": {
+      "comment": "TEMPO DE COOLDOWN EM MILISEGUNDOS. 1MIN = 60000, 5MIN = 300000, 1HORA = 3600000 , 1DIA = 86400000",
+      "find": 300000,
+      "quiz": 86400000,
+      "buttonInteraction": 30000
+    },
+    "pokemonsByGen": [
+      {
+        "gen": 1,
+        "quantity": 151
+      },
+      {
+        "gen": 2,
+        "quantity": 251
+      },
+      {
+        "gen": 3,
+        "quantity": 386
+      },
+      {
+        "gen": 4,
+        "quantity": 493
+      },
+      {
+        "gen": 5,
+        "quantity": 649
+      },
+      {
+        "gen": 6,
+        "quantity": 721
+      },
+      {
+        "gen": 7,
+        "quantity": 809
+      },
+      {
+        "gen": 8,
+        "quantity": 898
+      }
+    ],
+    "starters": [
       {
         "generation": 1,
         "starter": [
@@ -77,169 +116,148 @@
           { "name": " sobble", "element": "agua", "id": 816 }
         ]
       }
-    ]
+    ],
+    "pokeballCatchRates": {
+      "comment": "a taxa de captura de cada pokebola: exemplo: pokemon com 5% taxa de captura: pokeball = 5% * 1, greatball = 5% * 1.5 (7,5%), ultraball= 5% * 2 (10%), masterball = 5% * 1000 (+100% em todas ocasioes)",
+      "pokeball": 1,
+      "greatball": 1.5,
+      "ultraball": 2,
+      "masterball": 1000
+    }
   },
-  "pokemonsByGen": {
-    "generations": [
-      {
-        "gen": 1,
-        "quantity": 151
-      },
-      {
-        "gen": 2,
-        "quantity": 251
-      },
-      {
-        "gen": 3,
-        "quantity": 386
-      },
-      {
-        "gen": 4,
-        "quantity": 493
-      },
-      {
-        "gen": 5,
-        "quantity": 649
-      },
-      {
-        "gen": 6,
-        "quantity": 721
-      },
-      {
-        "gen": 7,
-        "quantity": 809
-      },
-      {
-        "gen": 8,
-        "quantity": 898
-      }
-    ]
-  },
-  "catchRate": {
-    "comment": "A CADA NÍVEL QUE PASSA, DIMINUI NESTA TAXA. EXEMPLO: LVL 20 ATÉ O LEVEL 30 DIMINUI 1.5% DE CHANCE POR LEVEL",
-    "basePercentage": 95,
-    "rates": [
-      {
-        "0": 1.8
-      },
-      {
-        "10": 2
-      },
-      {
-        "20": 1.5
-      },
-      {
-        "30": 1
-      },
-      {
-        "40": 0.8
-      },
-      {
-        "50": 0.8
-      },
-      {
-        "60": 0.8
-      },
-      {
-        "70": 0.4
-      },
-      {
-        "80": 0.1
-      },
-      {
-        "90": 0.1
-      }
-    ]
-  },
-  "pokeballRate": {
-    "comment": "a taxa de captura de cada pokebola: exemplo: pokemon com 5% taxa de captura: pokeball = 5% * 1, greatball = 5% * 1.5 (7,5%), ultraball= 5% * 2 (10%), masterball = 5% * 1000 (+100% em todas ocasioes)",
-    "pokeball": 1,
-    "greatball": 1.5,
-    "ultraball": 2,
-    "masterball": 1000
-  },
-  "findCommandEventChancePercentage": 5,
-  "earnedCatchChanceByTrainerLevel": 0.05,
-  "pokemonSpawnLevelByTrainerLevel": {
-    "base": 15,
-    "increaseByLevel": 3
-  },
-  "gymLeaderLife": 3,
-  "playerLifePVP": 3,
-  "chancesGymDefault": {
-    "default": 3,
-    "elementWinIncrease": 1,
-    "levelWinIncrease": 1
-  },
-  "chancesPvPDefault": {
-    "default": 5,
-    "elementWinIncrease": 1,
-    "levelWinIncrease": 1,
-    "howMuchLevelToIncreaseChance": 25
-  },
-  "gymFieldSize": {
-    "facil": {
-      "width": 3,
-      "height": 3
+  "find": {
+    "shinySpawnPercentage": 1,
+    "catchRate": {
+      "comment": "A CADA NÍVEL QUE PASSA, DIMINUI NESTA TAXA. EXEMPLO: LVL 20 ATÉ O LEVEL 30 DIMINUI 1.5% DE CHANCE POR LEVEL",
+      "basePercentage": 95,
+      "rates": [
+        {
+          "0": 1.8
+        },
+        {
+          "10": 2
+        },
+        {
+          "20": 1.5
+        },
+        {
+          "30": 1
+        },
+        {
+          "40": 0.8
+        },
+        {
+          "50": 0.8
+        },
+        {
+          "60": 0.8
+        },
+        {
+          "70": 0.4
+        },
+        {
+          "80": 0.1
+        },
+        {
+          "90": 0.1
+        }
+      ]
     },
-    "medio": {
-      "width": 4,
-      "height": 4
+    "eventChancePercentage": 5,
+    "gymLeaderLife": 3,
+    "chancesGymDefault": {
+      "default": 3,
+      "elementWinIncrease": 1,
+      "levelWinIncrease": 1
     },
-    "dificil": {
+    "gymFieldSize": {
+      "facil": {
+        "width": 3,
+        "height": 3
+      },
+      "medio": {
+        "width": 4,
+        "height": 4
+      },
+      "dificil": {
+        "width": 5,
+        "height": 5
+      }
+    },
+    "gymPrizeDefault": {
+      "facil": {
+        "pokeball": 5,
+        "greatball": 1,
+        "masterball": 0,
+        "ultraball": 0,
+        "moedas": 1000,
+        "itemEvo1": 0,
+        "itemEvo2": 0,
+        "insignia": 1,
+        "trainerExp": 2000
+      },
+      "medio": {
+        "pokeball": 5,
+        "greatball": 3,
+        "masterball": 2,
+        "ultraball": 0,
+        "moedas": 2000,
+        "itemEvo1": 2,
+        "itemEvo2": 0,
+        "insignia": 1,
+        "tainerExp": 5000
+      },
+      "dificil": {
+        "pokeball": 10,
+        "greatball": 5,
+        "masterball": 4,
+        "ultraball": 2,
+        "moedas": 5000,
+        "itemEvo1": 3,
+        "itemEvo2": 1,
+        "insignia": 1,
+        "trainerExp": 10000
+      }
+    },
+    "gymJokenpoWinChance": {
+      "facil": {
+        "chance": 70
+      },
+      "medio": {
+        "chance": 40
+      },
+      "dificil": {
+        "chance": 20
+      }
+    }
+  },
+  "pvpBattle": {
+    "playerLifePVP": 3,
+    "pvpFieldSize": {
       "width": 5,
       "height": 5
+    },
+    "chancesPvPDefault": {
+      "default": 5,
+      "elementWinIncrease": 1,
+      "levelWinIncrease": 1,
+      "howMuchLevelToIncreaseChance": 25
     }
   },
-  "pvpFieldSize": {
-    "width": 5,
-    "height": 5
-  },
-  "gymPrizeDefault": {
-    "facil": {
-      "pokeball": 5,
-      "greatball": 1,
-      "masterball": 0,
-      "ultraball": 0,
-      "moedas": 1000,
-      "itemEvo1": 0,
-      "itemEvo2": 0,
-      "insignia": 1,
-      "trainerExp": 2000
+  "store": {
+    "prices": {
+      "healthPotion": 999999,
+      "pokeball": 9999999,
+      "greatball": 9999999,
+      "ultraball": 9999999,
+      "itemEvo1": 9999999,
+      "itemEvo2": 9999999
     },
-    "medio": {
-      "pokeball": 5,
-      "greatball": 3,
-      "masterball": 2,
-      "ultraball": 0,
-      "moedas": 2000,
-      "itemEvo1": 2,
-      "itemEvo2": 0,
-      "insignia": 1,
-      "tainerExp": 5000
-    },
-    "dificil": {
-      "pokeball": 10,
-      "greatball": 5,
-      "masterball": 4,
-      "ultraball": 2,
-      "moedas": 5000,
-      "itemEvo1": 3,
-      "itemEvo2": 1,
-      "insignia": 1,
-      "trainerExp": 10000
+    "vipDuration": 100000,
+    "vipBonus": {
+      "catchBonusChance": 0,
+      "evolutionBonusChance": 0,
+      "pveBattleWinChance": 0
     }
-  },
-  "gymJokenpoWinChance": {
-    "facil": {
-      "chance": 70
-    },
-    "medio": {
-      "chance": 40
-    },
-    "dificil": {
-      "chance": 20
-    }
-  },
-  "pokemonTeamLimit": 6
+  }
 }

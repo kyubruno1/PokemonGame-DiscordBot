@@ -1,5 +1,5 @@
 const config = require('config');
-const cdConfig = config.get('cooldowns.quiz');
+const cdConfig = config.get('universal.cooldowns.quiz');
 const humanizeDuration = require('humanize-duration');
 
 const cooldowns = new Map();

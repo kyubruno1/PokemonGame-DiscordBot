@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
-const configEvent = require('config').get('findCommandEventChancePercentage');
-const chance = require('chance').Chance();
 const Player = require('../db/models/Player');
+const configEvent = require('config').get('find.eventChancePercentage');
+const chance = require('chance').Chance();
 const findCooldown = require('../functions/helpers/findCooldown');
 const { createEmbedPokemon, generateEvent } = require('../controllers/findController');
 
@@ -15,7 +15,6 @@ module.exports = {
         ephemeral: true,
       });
     }
-
     if (!findCooldown(interaction)) {
       const dice = chance.integer({ min: 1, max: 100 });
       if (dice <= configEvent) {

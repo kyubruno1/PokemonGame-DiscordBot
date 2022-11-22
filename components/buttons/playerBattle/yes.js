@@ -2,7 +2,7 @@ const { ActionRowBuilder, SelectMenuBuilder, ComponentType, userMention } = requ
 const Player = require('../../../db/models/Player');
 const { createBoard } = require('../../../controllers/battleController');
 const wait = require('node:timers/promises').setTimeout;
-const configCooldown = require('config').get('cooldowns.interacaoBotoes');
+const configCooldown = require('config').get('universal.cooldowns.buttonInteraction');
 
 module.exports = {
   data: {

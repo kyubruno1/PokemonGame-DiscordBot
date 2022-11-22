@@ -2,12 +2,9 @@ const Player = require('../db/models/Player');
 const Inventory = require('../db/models/Inventory');
 const fs = require('fs');
 const path = require('path');
-// const Pokemon = require('../db/models/Pokemon');
-
-const fetch = require('node-fetch');
 const config = require('config');
-const configGen = config.get('generations.gen');
-const configPokemons = config.get('pokemonsByGen.generations');
+const configPokemons = config.get('universal.pokemonsByGen');
+const configPokemonBaseHealth = config.get('universal.pokemonBaseHealth');
 
 async function createAccount(interaction) {
   //sempre vai criar o array com o maior numero de pokemon, para caso queira diminuir a geração depois
@@ -33,6 +30,7 @@ async function createAccount(interaction) {
     growthRate: 1,
     element: chosenPokemon[2].value,
     expToNextLevel: 100,
+    health: configPokemonBaseHealth,
     berries: {
       max: 2,
       equiped: [],
@@ -51,51 +49,6 @@ async function createAccount(interaction) {
 
   FoundPokemon.slots.push(cPoke);
 
-  const capsules = [
-    {
-      fragNormal: 0,
-      fragFighting: 0,
-      fragFlying: 0,
-      fragPoison: 0,
-      fragGround: 0,
-      fragRock: 0,
-      fragBug: 0,
-      fragGhost: 0,
-      fragSteel: 0,
-      fragFire: 0,
-      fragWater: 0,
-      fragGrass: 0,
-      fragPsychic: 0,
-      fragIce: 0,
-      fragDragon: 0,
-      fragDark: 0,
-      fragFairy: 0,
-      fragElectric: 0,
-      fragUnknown: 0,
-      fragShadow: 0,
-      capsuleNormal: 0,
-      capsuleFighting: 0,
-      capsuleFlying: 0,
-      capsulePoison: 0,
-      capsuleGround: 0,
-      capsuleRock: 0,
-      capsuleBug: 0,
-      capsuleGhost: 0,
-      capsuleSteel: 0,
-      capsuleFire: 0,
-      capsuleWater: 0,
-      capsuleGrass: 0,
-      capsulePsychic: 0,
-      capsuleIce: 0,
-      capsuleDragon: 0,
-      capsuleDark: 0,
-      capsuleFairy: 0,
-      capsuleElectric: 0,
-      capsuleUnknown: 0,
-      capsuleShadow: 0,
-    },
-  ];
-
   //procura
   const dataPath = path.join(__dirname, '..', 'assets', 'data', `trainer_exp_table.json`);
   const data = JSON.parse(fs.readFileSync(dataPath, { encoding: 'utf8', flag: 'r' }));
@@ -104,15 +57,12 @@ async function createAccount(interaction) {
   await Player.create({
     name: interaction.user.tag,
     discordId: interaction.user.id,
-    gotInitial: true,
     pokemons: pokemons,
     pvpWins: 0,
     teams: team,
-    trainerLevel: 1,
     expToNextLevel: lvlOneExp.expToNextLevel,
-    totalCatch: 1,
-    capsules: capsules,
   });
+
   await Inventory.create({ PlayerDiscordId: interaction.user.id });
 
   return await interaction.reply(

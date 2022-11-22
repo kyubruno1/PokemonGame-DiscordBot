@@ -1,5 +1,5 @@
 const config = require('config');
-const cdConfig = config.get('cooldowns.find');
+const cdConfig = config.get('universal.cooldowns.find');
 const humanizeDuration = require('humanize-duration');
 
 const cooldowns = new Map();

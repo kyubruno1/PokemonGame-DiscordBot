@@ -10,14 +10,13 @@ const fs = require('fs');
 const path = require('path');
 
 const chance = require('chance').Chance();
-const fetch = require('node-fetch');
 const config = require('config');
-const configGen = config.get('generations.gen');
-const configPokemons = config.get('pokemonsByGen.generations');
-const configShinyPercentage = config.get('shinyPercentage');
-const configPokemonLimit = config.get('samePokemonLimit');
-const configInteractionCooldown = config.get('cooldowns.interacaoBotoes');
-const spawnLevelByTrainerLevel = config.get('pokemonSpawnLevelByTrainerLevel');
+const configGen = config.get('universal.generationsPlayed');
+const configPokemons = config.get('universal.pokemonsByGen');
+const configShinyPercentage = config.get('find.shinySpawnPercentage');
+const configPokemonLimit = config.get('universal.samePokemonLimitInPokedex');
+const configInteractionCooldown = config.get('universal.cooldowns.buttonInteraction');
+const spawnLevelByTrainerLevel = config.get('player.pokemonSpawnLevelByTrainerLevel');
 const Canvas = require('@napi-rs/canvas');
 
 const Player = require('../db/models/Player');

@@ -8,15 +8,15 @@ const { checkTrainerLevelUp } = require('./PlayerController');
 
 //config
 const config = require('config');
-const configCooldown = config.get('cooldowns.interacaoBotoes');
-const configChances = config.get('chancesGymDefault');
-const configChancesPVP = config.get('chancesPvPDefault');
-const configFieldSize = config.get('gymFieldSize');
-const configFieldSizePVP = config.get('pvpFieldSize');
-const configGymLeaderLife = config.get('gymLeaderLife');
-const configPlayerLifePVP = config.get('playerLifePVP');
-const configGymJokenpoWinChance = config.get('gymJokenpoWinChance');
-const configGymPrize = config.get('gymPrizeDefault');
+const configCooldown = config.get('universal.cooldowns.buttonInteraction');
+const configChances = config.get('find.chancesGymDefault');
+const configFieldSize = config.get('find.gymFieldSize');
+const configGymLeaderLife = config.get('find.gymLeaderLife');
+const configGymJokenpoWinChance = config.get('find.gymJokenpoWinChance');
+const configGymPrize = config.get('find.gymPrizeDefault');
+const configChancesPVP = config.get('pvpBattle.chancesPvPDefault');
+const configFieldSizePVP = config.get('pvpBattle.pvpFieldSize');
+const configPlayerLifePVP = config.get('pvpBattle.playerLifePVP');
 
 //read elements
 const dataPath = path.join(__dirname, '..', 'assets', 'data', `elements.json`);

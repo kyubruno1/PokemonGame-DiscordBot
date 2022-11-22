@@ -7,14 +7,11 @@ const {
   ButtonStyle,
 } = require('discord.js');
 const path = require('path');
-const fs = require('fs');
 const config = require('config');
-const configGen = config.get('generations.gen');
-const configStarter = config.get('starters.pokemons');
-const fetch = require('node-fetch');
-/* */
+const configGen = config.get('universal.generationsPlayed');
+const configStarter = config.get('universal.starters');
 
-function createStarterButtons() {
+function createStarterSelectMenu() {
   let arr = [];
   options = [];
   for (i = 0; i < configGen; i++) {
@@ -71,4 +68,4 @@ async function createEmbedStarter(pokemonName, gen) {
   return { embed, file, row };
 }
 
-module.exports = { createStarterButtons, createEmbedStarter };
+module.exports = { createStarterSelectMenu, createEmbedStarter };

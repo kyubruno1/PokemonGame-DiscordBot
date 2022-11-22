@@ -1,7 +1,7 @@
 const { createBoardEvent, createJokenpo } = require('../../../controllers/battleController');
 const Player = require('../../../db/models/Player');
 const { ActionRowBuilder, SelectMenuBuilder, ComponentType } = require('discord.js');
-const configCooldown = require('config').get('cooldowns.interacaoBotoes');
+const configCooldown = require('config').get('universal.cooldowns.buttonInteraction');
 
 module.exports = {
   data: {

@@ -6,12 +6,11 @@ const {
   ButtonStyle,
   EmbedBuilder,
   ComponentType,
-  AttachmentBuilder,
   ModalBuilder,
   TextInputBuilder,
   TextInputStyle,
 } = require('discord.js');
-const configInteractionCooldown = require('config').get('cooldowns.interacaoBotoes');
+const configInteractionCooldown = require('config').get('universal.cooldowns.buttonInteraction');
 
 async function showPokemons(interaction, pokemons) {
   await interaction.reply({ content: 'Carregando pokémons...', ephemeral: true });

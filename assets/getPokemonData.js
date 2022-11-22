@@ -3,7 +3,7 @@ const chalk = require('chalk');
 const path = require('path');
 const fetch = require('node-fetch');
 const config = require('config');
-const generations = config.get('pokemonsByGen.generations');
+const generations = config.get('universal.pokemonsByGen');
 
 async function getPokemonData() {
   const filePath = path.join(__dirname, 'data', 'pokemon_info.json');

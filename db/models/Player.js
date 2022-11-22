@@ -13,26 +13,31 @@ const Player = sequelize.define(
     },
     gotInitial: {
       type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
     pvpWins: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
     trainerLevel: {
       type: DataTypes.INTEGER,
+      defaultValue: 1,
     },
     expToNextLevel: {
       type: DataTypes.INTEGER,
     },
     totalCatch: {
       type: DataTypes.INTEGER,
+      defaultValue: 1,
+    },
+    vipUntil: {
+      type: DataTypes.INTEGER,
+      defaultValue: null,
     },
     teams: {
       type: DataTypes.JSON,
     },
     pokemons: {
-      type: DataTypes.JSON,
-    },
-    capsules: {
       type: DataTypes.JSON,
     },
   },

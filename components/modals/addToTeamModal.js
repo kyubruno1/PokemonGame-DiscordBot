@@ -1,5 +1,5 @@
 const Player = require('../../db/models/Player');
-const configTeamLimit = require('config').get('pokemonTeamLimit');
+const configTeamLimit = require('config').get('universal.pokemonTeamLimit');
 
 module.exports = {
   data: {

@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 
 const { showPokemons } = require('../controllers/pokemonController');
-const { checkTrainerLevelUp } = require('../controllers/PlayerController');
 
 const Player = require('../db/models/Player');
 module.exports = {

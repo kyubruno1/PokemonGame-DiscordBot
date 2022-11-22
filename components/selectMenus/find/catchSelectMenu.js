@@ -1,6 +1,4 @@
-const { ActionRowBuilder } = require('discord.js');
-const wait = require('node:timers/promises').setTimeout;
-const { catchExecute, executeCatch } = require('../../../controllers/catchController');
+const { catchExecute } = require('../../../controllers/catchController');
 
 module.exports = {
   data: {

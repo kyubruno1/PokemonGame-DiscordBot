@@ -1,6 +1,6 @@
 const { ActionRowBuilder, SelectMenuBuilder, ComponentType } = require('discord.js');
 const Player = require('../../../db/models/Player');
-const configCooldown = require('config').get('cooldowns.interacaoBotoes');
+const configCooldown = require('config').get('universal.cooldowns.buttonInteraction');
 module.exports = {
   data: {
     name: `del`,

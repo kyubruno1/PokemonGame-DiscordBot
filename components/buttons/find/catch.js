@@ -1,5 +1,5 @@
 const Inventory = require('../../../db/models/Inventory');
-const { catchExecute, createPokeballSelectMenu } = require('../../../controllers/catchController');
+const { createPokeballSelectMenu } = require('../../../controllers/catchController');
 module.exports = {
   data: {
     name: `catch`,
@@ -20,7 +20,6 @@ module.exports = {
 
       const row = await createPokeballSelectMenu(interaction);
       await interaction.reply({ components: [row], ephemeral: true });
-      //   catchExecute(interaction);
     }
   },
 };

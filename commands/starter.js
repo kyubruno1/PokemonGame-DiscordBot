@@ -1,7 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { createStarterButtons } = require('../controllers/starterController');
+const { createStarterSelectMenu } = require('../controllers/starterController');
 const wait = require('node:timers/promises').setTimeout;
-const teamLimit = require('config').get('pokemonTeamLimit');
+const teamLimit = require('config').get('universal.pokemonTeamLimit');
+
 const Player = require('../db/models/Player');
 
 module.exports = {
@@ -40,11 +41,11 @@ module.exports = {
       ephemeral: true,
     });
 
-    const row = createStarterButtons();
+    const row = createStarterSelectMenu();
 
     await wait(4000);
     await interaction.followUp({
-      content: `Agora que você já conhece brevemente o jogo, que tal escolher um pokémon para iniciar sua jornada?`,
+      content: `${interaction.user} Agora que você já conhece brevemente o jogo, que tal escolher um pokémon para iniciar sua jornada?`,
       components: [row],
       ephemeral: true,
     });

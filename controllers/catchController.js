@@ -5,13 +5,14 @@ const path = require('path');
 
 //external modules
 const config = require('config');
-const configRates = config.get('catchRate');
-const configPokemonLimit = config.get('samePokemonLimit');
-const configPokeballRate = config.get('pokeballRate');
-const configInteractionCooldown = config.get('cooldowns.interacaoBotoes');
-const earnedCatchChanceByTrainerLevel = config.get('earnedCatchChanceByTrainerLevel');
+const configRates = config.get('find.catchRate');
+const configPokemonLimit = config.get('universal.samePokemonLimitInPokedex');
+const configPokeballRate = config.get('universal.pokeballCatchRates');
+const configInteractionCooldown = config.get('universal.cooldowns.buttonInteraction');
+const configPokemonBaseHealth = config.get('universal.pokemonBaseHealth');
+const earnedCatchChanceByTrainerLevel = config.get('player.earnedCatchChanceByTrainerLevel');
+
 var chance = require('chance').Chance();
-const fetch = require('node-fetch');
 
 //functions & models
 const Player = require('../db/models/Player');
@@ -162,14 +163,13 @@ async function catchExecute(interaction) {
 
   //verifica se capturou o pokemon
   if (chance.integer({ min: 1, max: 100 }) <= catchChance) {
-    // const player = await Player.findOne({ where: { discordId: interaction.user.id } });
     const pokemons = JSON.parse(player.pokemons);
     const pokemonFound = pokemons.find((poke) => poke.id == values[8]);
     pokemonFound.alreadyCaught = 'Yes';
 
     //verifica se já ultrapassou o limite de pokemons do mesmo tipo
     if (pokemonFound.slots.length >= configPokemonLimit) {
-      return await interaction.editReply({
+      return await interaction.reply({
         content: `Você pode ter até ${configPokemonLimit} deste pokemon e você já atingiu o limite. Você pode transformar (/fabrica) seus pokemons em berries ou soltar (/soltar) eles.`,
         ephemeral: true,
       });
@@ -187,6 +187,7 @@ async function catchExecute(interaction) {
       growthRate: values[4],
       element: values[5],
       expToNextLevel: values[6],
+      health: configPokemonBaseHealth,
       berries: [
         {
           max: values[7],
@@ -216,6 +217,7 @@ Seu nível de treinador aumentou para: **${playerLevelUp.trainerLevel}**`,
         ephemeral: true,
       });
     }
+
     return await interaction.reply({
       content: `${interaction.user} capturou um ${values[0]} level ${values[1]}, parabéns!`,
       ephemeral: true,
